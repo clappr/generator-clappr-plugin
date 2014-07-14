@@ -63,8 +63,11 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
       filename: this.name,
     });
 
+    this.template('_package.json', 'package.json', {
+      name: this.name
+    });
+
     this.copy('hook.js', 'bin/hook.js');
-    this.copy('_package.json', 'package.json');
   },
 
   projectfiles: function () {

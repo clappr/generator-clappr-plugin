@@ -1,5 +1,5 @@
 {
-  "name": "<%= this.name %>",
+  "name": "<%= name %>",
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
@@ -13,7 +13,7 @@
     "yargs": "^1.2.6",
     "glob": "^4.0.4",
     "mkdirp": "^0.5.0",
-    "underscore": "^1.6.0",
+    "underscore": "^1.6.0"
   }
 
 }
