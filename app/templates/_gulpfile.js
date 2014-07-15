@@ -7,6 +7,9 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var exec = require('child_process').exec;
 var args = require('yargs').argv;
+var express = require('express');
+var util = require('gulp-util');
+var livereload = require('gulp-livereload');
 
 var files = {
   css:  'public/*.css',
@@ -54,6 +57,34 @@ gulp.task("copy-css", function() {
 gulp.task("copy-html", function() {
   return gulp.src(files.html)
     .pipe(gulp.dest('build'));
+});
+
+gulp.task('serve', ['watch'], function() {
+  express()
+    .use(express.static('.'))
+    .use(express.static('./dist'))
+    .listen(3000);
+  util.log(util.colors.bgGreen('Listening on port 3000'));
+});
+
+
+gulp.task('watch', function() {
+  var reloadServer = livereload();
+
+  var js = gulp.watch('./*.js');
+  js.on('change', function(event) {
+    gulp.start('compile-js', function() {
+      reloadServer.changed(event.path);
+    });
+  });
+
+  var assets = gulp.watch('./public/*.{html,scss,css}');
+  assets.on('change', function(event) {
+    gulp.start(['sass', 'copy-html', 'copy-css'], function() {
+      reloadServer.changed(event.path);
+    });
+  });
+  util.log(util.colors.bgGreen('Watching for changes...'));
 });
 
 
