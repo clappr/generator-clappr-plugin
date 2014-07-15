@@ -60,11 +60,11 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
 
     this.template('_gulpfile.js', 'Gulpfile.js', {
       pluginName: this._.classify(this.name),
-      filename: this.name,
+      filename: this._.underscored(this.name),
     });
 
     this.template('_package.json', 'package.json', {
-      name: this.name
+      name: this._.underscored(this.name)
     });
 
     this.copy('hook.js', 'bin/hook.js');
