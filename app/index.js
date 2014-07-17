@@ -26,9 +26,6 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
   askFor: function () {
     var done = this.async();
 
-//    // Have Yeoman greet the user.
-//    this.log(yosay('Welcome to the marvelous PlayerPlugin generator!'));
-
     var prompts = [{
       type: 'input',
       name: 'name',
@@ -55,7 +52,8 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
     this.template("_index.js", "index.js", {
       className: this._.classify(translate[this.type]),
       pluginName: this._.classify(this.name),
-      dependency: translate[this.type]
+      dependency: translate[this.type],
+      name: this._.underscored(this.name)
     });
 
     this.template('_gulpfile.js', 'Gulpfile.js', {
@@ -72,12 +70,18 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
       filename: this._.underscored(this.name),
     });
 
-    this.copy('hook.js', 'bin/hook.js');
+    this.template('_hook.js', 'bin/hook.js', {
+      name: this._.underscored(this.name),
+    });
+
+    this.copy('gitkeep', 'public/.gitkeep');
+    this.copy('hook_template.js', 'bin/.hook_template');
   },
 
   projectfiles: function () {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
+    this.copy('gitignore', '.gitignore');
   }
 });
 
