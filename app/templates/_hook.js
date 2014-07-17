@@ -8,13 +8,13 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('underscore');
 
-var codeTemplate = _.template(fs.readFileSync('./.hook_template').toString());
+var codeTemplate = _.template(fs.readFileSync('bin/.hook_template').toString());
 
 var jstFile = './jst.js';
 
 function format(filePath) {
   var content = fs.readFileSync(filePath).toString().replace(/\r?\n|\r/g, '');
-  return {name: '', content: content};
+  return {name: '<%= name %>', content: content};
 }
 
 function copyFiles(asset) {
