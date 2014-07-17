@@ -30,7 +30,7 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
       type: 'input',
       name: 'name',
       message: "Plugin name:",
-      default: this.appname
+      default: 'Foo Bar'
     }, {
       type: 'list',
       name: 'type',
