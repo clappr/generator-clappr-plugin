@@ -73,7 +73,7 @@ gulp.task('watch', function() {
 
   var js = gulp.watch('./*.js');
   js.on('change', function(event) {
-    gulp.start('compile-js', function() {
+    gulp.start('build', function() {
       reloadServer.changed(event.path);
     });
   });
