@@ -5,7 +5,7 @@ class <%= pluginName %> extends <%= className %> {
   get name() { return '<%= name %>'; }
 
   render() {
-    var style = $('<style>').html(JST.CSS[<%= name %>]());
+    var style = $('<style>').html(JST.CSS[<%= name %>]);
     this.$el.append(style);
     return this;
   }
