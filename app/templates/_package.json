@@ -1,7 +1,9 @@
 {
   "name": "<%= name %>",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "clappr": "latest"
+  },
   "devDependencies": {
     "browserify": "^4.2.0",
     "es6ify": "^1.2.0",
@@ -14,7 +16,6 @@
     "glob": "^4.0.4",
     "mkdirp": "^0.5.0",
     "underscore": "^1.6.0",
-    "player": "latest",
     "express": "^4.6.1",
     "gulp-util": "latest",
     "gulp-livereload": "^2.1.0"

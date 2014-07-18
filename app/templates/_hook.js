@@ -1,4 +1,4 @@
-// Copyright 2014 Globo.com Player authors. All rights reserved.
+// Copyright 2014 Globo.com Clappr authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
@@ -30,6 +30,6 @@ fs.writeFileSync(jstFile, codeTemplate({templates: templates, styles: styles}));
 
 mkdirp('dist/assets/');
 
-glob('./node_modules/player/dist/**/*.{png,jpeg,jpg,gif,swf,eot,ttf,svg}').map(copyFiles);
+glob('./node_modules/clappr/dist/**/*.{png,jpeg,jpg,gif,swf,eot,ttf,svg}').map(copyFiles);
 glob('public/*.{png,jpeg,jpg,gif,swf,eot,ttf,svg}').map(copyFiles);
-glob('./node_modules/player/dist/*.js').map(copyFiles);
+glob('./node_modules/clappr/dist/*.js').map(copyFiles);

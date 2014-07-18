@@ -1,10 +1,10 @@
 {
-  "name": "generator-player-plugin",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "name": "generator-clappr-plugin",
+  "version": "0.0.1",
+  "description": "Yeoman generator for clappr player plugins",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "thiagopnts/generator-player-plugin",
+  "repository": "globocom/generator-clappr-plugin",
   "author": {
     "name": "Thiago Pontes",
     "email": "email@thiago.me",
@@ -13,14 +13,13 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "files": [
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "clappr",
+    "plugin"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",

@@ -12,7 +12,7 @@ var translate = {
 };
 
 
-var PlayerPluginGenerator = yeoman.generators.Base.extend({
+var ClapprPluginGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
@@ -85,4 +85,4 @@ var PlayerPluginGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = PlayerPluginGenerator;
+module.exports = ClapprPluginGenerator;
