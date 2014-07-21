@@ -67,7 +67,9 @@ var ClapprPluginGenerator = yeoman.generators.Base.extend({
 
     this.template('_index.html', 'index.html', {
       name: this.name,
+      classname: this._.classify(this.name),
       filename: this._.underscored(this.name),
+      pluginType: this.type.toLowerCase(),
     });
 
     this.template('_hook.js', 'bin/hook.js', {

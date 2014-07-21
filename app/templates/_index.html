@@ -7,7 +7,14 @@
   <title><%= name %> Test Page</title>
   <script type="text/javascript" charset="utf-8">
 window.onload = function() {
-  player = new WP3.Player({sources: ['http://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4']});
+  player = new WP3.Player({
+    sources: ['http://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4'],
+    {
+      plugins: {
+        <%= pluginType %>: [<%= classname %>]
+      }
+    }
+  });
   player.attachTo(document.getElementById('player-wrapper'));
 }
   </script>
