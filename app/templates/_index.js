@@ -10,5 +10,11 @@ class <%= pluginName %> extends <%= className %> {
     return this;
   }
 }
+<% if(type === 'playback') { %>
+<%= pluginName %>.canPlay = function(source) {
+  //should return true for the supported media source
+  return true;
+};
+<% } %>
 
 module.exports = window.<%= pluginName %> = <%= pluginName %>;

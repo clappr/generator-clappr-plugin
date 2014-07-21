@@ -53,7 +53,8 @@ var ClapprPluginGenerator = yeoman.generators.Base.extend({
       className: this._.classify(translate[this.type]),
       pluginName: this._.classify(this.name),
       dependency: translate[this.type],
-      name: this._.underscored(this.name)
+      name: this._.underscored(this.name),
+      type: this.type.toLowerCase()
     });
 
     this.template('_gulpfile.js', 'Gulpfile.js', {
