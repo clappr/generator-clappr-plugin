@@ -10,6 +10,8 @@ var args = require('yargs').argv;
 var express = require('express');
 var util = require('gulp-util');
 var livereload = require('gulp-livereload');
+var uglify = require('gulp-uglify')
+var streamify = require('gulp-streamify')
 
 var files = {
   css:  'public/*.css',
