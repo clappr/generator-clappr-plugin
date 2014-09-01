@@ -24,7 +24,6 @@ gulp.task('pre-build', ['sass', 'copy-html', 'copy-css'], function(done) {
 });
 
 gulp.task('build', ['pre-build'], function(b) {
-  var isProd = ['prod', 'production'].indexOf(args.env) !== -1 ? true : false;
 
   var stream = browserify()
     .transform(es6ify.configure(/^(?!.*node_modules)+.+\.js$/))
@@ -36,14 +35,30 @@ gulp.task('build', ['pre-build'], function(b) {
     .external('browser')
     .external('jquery')
     .external('underscore')
+    .external('media_control')
     .bundle()
     .pipe(source('main.js'))
-    .pipe(rename( '<%= filename %>' + (isProd ? '.min.js' : '.js')));
+    .pipe(rename( '<%= filename %>.js'))
+    .pipe(gulp.dest('./dist'));
+});
 
-  if(isProd) {
-    stream.pipe(streamify(uglify()));
-  }
-  stream.pipe(gulp.dest('./dist'))
+gulp.task('release', ['pre-build'], function() {
+  var stream = browserify()
+    .transform(es6ify.configure(/^(?!.*node_modules)+.+\.js$/))
+    .add(es6ify.runtime)
+    .add('./index.js', {entry: true})
+    .external('ui_plugin')
+    .external('ui_object')
+    .external('base_object')
+    .external('browser')
+    .external('jquery')
+    .external('underscore')
+    .external('media_control')
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(rename( '<%= filename %>.min.js'))
+    .pipe(streamify(uglify()));
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('sass', function () {

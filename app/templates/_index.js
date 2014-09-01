@@ -3,12 +3,13 @@ var JST = require('./jst');
 
 class <%= pluginName %> extends <%= className %> {
   get name() { return '<%= name %>'; }
-
+<% if(className !== 'MediaControl') { %>
   render() {
     var style = $('<style>').html(JST.CSS[<%= name %>]);
     this.$el.append(style);
     return this;
   }
+<% } %>
 }
 <% if(type === 'playback') { %>
 <%= pluginName %>.canPlay = function(source) {

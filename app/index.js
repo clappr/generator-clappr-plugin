@@ -8,7 +8,8 @@ var chalk = require('chalk');
 var translate = {
   'Playback': 'ui_plugin',
   'Container': 'ui_object',
-  'Core': 'base_object'
+  'Core': 'base_object',
+  'MediaControl': 'media_control'
 };
 
 
@@ -35,7 +36,7 @@ var ClapprPluginGenerator = yeoman.generators.Base.extend({
       type: 'list',
       name: 'type',
       message: 'Choose a plugin type:',
-      choices: ['Playback', 'Container', 'Core']
+      choices: ['Playback', 'Container', 'Core', 'MediaControl']
     }];
 
     this.prompt(prompts, function (props) {
