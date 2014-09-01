@@ -11,17 +11,15 @@
 window.onload = function() {
   var player = new Clappr.Player({
     sources: ['http://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4'],
-    {
     <% if(pluginType === 'mediacontrol') { %>
-      mediacontrol: {
-        external: <%= classname %>
-      }
-    <% } else { %>
-      plugins: {
-        <%= pluginType %>: [<%= classname %>]
-      }
-    <% } %>
+    mediacontrol: {
+      external: <%= classname %>
     }
+    <% } else { %>
+    plugins: {
+      <%= pluginType %>: [<%= classname %>]
+    }
+    <% } %>
   });
   player.attachTo(document.getElementById('player-wrapper'));
 }
