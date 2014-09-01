@@ -99,7 +99,7 @@ gulp.task('watch', function() {
 
   var assets = gulp.watch('./public/*.{html,scss,css}');
   assets.on('change', function(event) {
-    gulp.start(['sass', 'copy-html', 'copy-css'], function() {
+    gulp.start(['build'], function() {
       reloadServer.changed(event.path);
     });
   });
