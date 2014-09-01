@@ -20,12 +20,11 @@ var files = {
 };
 
 gulp.task('pre-build', ['sass', 'copy-html', 'copy-css'], function(done) {
-  exec('node bin/hook.js', done);
+  return exec('node bin/hook.js', done);
 });
 
 gulp.task('build', ['pre-build'], function(b) {
-
-  var stream = browserify()
+  return browserify()
     .transform(es6ify.configure(/^(?!.*node_modules)+.+\.js$/))
     .add(es6ify.runtime)
     .add('./index.js', {entry: true})
@@ -43,7 +42,7 @@ gulp.task('build', ['pre-build'], function(b) {
 });
 
 gulp.task('release', ['pre-build'], function() {
-  var stream = browserify()
+  return browserify()
     .transform(es6ify.configure(/^(?!.*node_modules)+.+\.js$/))
     .add(es6ify.runtime)
     .add('./index.js', {entry: true})
@@ -57,7 +56,7 @@ gulp.task('release', ['pre-build'], function() {
     .bundle()
     .pipe(source('main.js'))
     .pipe(rename( '<%= filename %>.min.js'))
-    .pipe(streamify(uglify()));
+    .pipe(streamify(uglify()))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -79,7 +78,7 @@ gulp.task("copy-html", function() {
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('serve', ['watch'], function() {
+gulp.task('serve', ['build', 'watch'], function() {
   express()
     .use(express.static('.'))
     .use(express.static('./dist'))
