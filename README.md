@@ -8,6 +8,12 @@ Install yeoman and our generator from npm:
 $ npm install -g yo generator-clappr-plugin
 ```
 
+Create a directory for your plugin:
+
+```bash
+$ mkdir your-awesome-plugin && cd your-awesome-plugin
+```
+
 Initiate the generator:
 
 ```bash
