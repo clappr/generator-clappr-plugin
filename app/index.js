@@ -7,8 +7,8 @@ var chalk = require('chalk');
 
 var translate = {
   'Playback': 'playback',
-  'Container': 'ui_object',
-  'Core': 'base_object',
+  'Container': 'ui_container_plugin',
+  'Core': 'core_plugin',
   'MediaControl': 'media_control'
 };
 
