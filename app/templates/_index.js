@@ -5,7 +5,8 @@ class <%= pluginName %> extends <%= className %> {
   get name() { return '<%= name %>'; }
 <% if(className !== 'MediaControl') { %>
   render() {
-    var style = $('<style>').html(JST.CSS[<%= name %>]);
+    console.log("rendering", this.name);
+    var style = $('<style>').html(JST.CSS[this.name]);
     this.$el.append(style);
     return this;
   }
@@ -14,7 +15,7 @@ class <%= pluginName %> extends <%= className %> {
 <% if(type === 'playback') { %>
 <%= pluginName %>.canPlay = function(source) {
   //should return true for the supported media source
-  return true;
+  return false;
 };
 <% } %>
 

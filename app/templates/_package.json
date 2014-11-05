@@ -6,7 +6,6 @@
     "underscore" : "1.7.0"
   },
   "browserify-shim": {
-    "jquery": { "exports": "global:$" },
     "underscore": { "exports": "global:_" }
   },
   "browserify": {
@@ -31,5 +30,5 @@
     "gulp-uglify": "^1.0.1",
     "gulp-livereload": "^2.1.0",
     "gulp-streamify": "0.0.5"
-  },
+  }
 }

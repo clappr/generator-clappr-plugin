@@ -6,7 +6,7 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 
 var translate = {
-  'Playback': 'ui_plugin',
+  'Playback': 'playback',
   'Container': 'ui_object',
   'Core': 'base_object',
   'MediaControl': 'media_control'
