@@ -9,6 +9,7 @@
 window.onload = function() {
   var player = new Clappr.Player({
     sources: ['http://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4'],
+    parentId: '#player-wrapper',
     <% if(pluginType === 'mediacontrol') { %>
     mediacontrol: {
       external: <%= classname %>
@@ -19,7 +20,6 @@ window.onload = function() {
     }
     <% } %>
   });
-  player.attachTo(document.getElementById('player-wrapper'));
 }
   </script>
 </head>
