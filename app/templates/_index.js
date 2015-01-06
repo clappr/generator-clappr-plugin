@@ -2,7 +2,7 @@ var <%= className %> = require('<%= dependency %>');
 var JST = require('./jst');
 
 class <%= pluginName %> extends <%= className %> {
-  get name() { return '<%= name %>'; }
+  get name() { return '<%= name %>' }
 <% if(className !== 'MediaControl') { %>
   render() {
     console.log("rendering", this.name)
