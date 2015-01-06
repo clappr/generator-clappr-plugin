@@ -5,9 +5,9 @@ class <%= pluginName %> extends <%= className %> {
   get name() { return '<%= name %>'; }
 <% if(className !== 'MediaControl') { %>
   render() {
-    console.log("rendering", this.name);
-    var style = $('<style>').html(JST.CSS[this.name]);
-    this.$el.append(style);
+    console.log("rendering", this.name)
+    var style = $('<style>').html(JST.CSS[this.name])
+    this.$el.append(style)
     return this;
   }
 <% } %>
