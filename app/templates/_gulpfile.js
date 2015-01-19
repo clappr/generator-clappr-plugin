@@ -19,6 +19,11 @@ var files = {
   html: 'public/*.html'
 };
 
+var watch_paths = {
+  js: ['./*.js', './src/*.js'],
+  assets: './public/*.{html,scss,css}'
+};
+
 gulp.task('pre-build', ['sass', 'copy-html', 'copy-css'], function(done) {
   return exec('node bin/hook.js', done);
 });
@@ -101,14 +106,14 @@ gulp.task('serve', ['build', 'watch'], function() {
 gulp.task('watch', function() {
   var reloadServer = livereload();
 
-  var js = gulp.watch('./*.js');
+  var js = gulp.watch(watch_paths.js);
   js.on('change', function(event) {
     gulp.start('build', function() {
       reloadServer.changed(event.path);
     });
   });
 
-  var assets = gulp.watch('./public/*.{html,scss,css}');
+  var assets = gulp.watch(watch_paths.assets);
   assets.on('change', function(event) {
     gulp.start(['build'], function() {
       reloadServer.changed(event.path);
@@ -116,5 +121,3 @@ gulp.task('watch', function() {
   });
   util.log(util.colors.bgGreen('Watching for changes...'));
 });
-
-
