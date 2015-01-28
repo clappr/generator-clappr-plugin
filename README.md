@@ -1,5 +1,5 @@
 
-# Clappr Player plugin generator [![Build Status](https://secure.travis-ci.org/globocom/generator-clappr-plugin.png?branch=master)](https://travis-ci.org/globocom/generator-clappr-plugin)
+# Clappr Player plugin generator [![Build Status](https://secure.travis-ci.org/clappr/generator-clappr-plugin.png?branch=master)](https://travis-ci.org/clappr/generator-clappr-plugin)
 
 ## Getting Started
 
