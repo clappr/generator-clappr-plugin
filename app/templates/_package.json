@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "clappr": "latest",
-    "lodash.template" : "3.0.0",
+    "lodash.template" : "3.0.0"
   },
   "devDependencies": {
     "browserify": "^6.2.0",
