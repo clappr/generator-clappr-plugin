@@ -1,6 +1,6 @@
 {
   "name": "generator-clappr-plugin",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Yeoman generator for clappr player plugins",
   "license": "MIT",
   "main": "app/index.js",
