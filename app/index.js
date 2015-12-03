@@ -7,8 +7,10 @@ var chalk = require('chalk');
 
 var translate = {
   'Playback': 'playback',
-  'Container': 'ui_container_plugin',
-  'Core': 'ui_core_plugin',
+  'Container': 'container_plugin',
+  'UIContainer': 'ui_container_plugin',
+  'Core': 'core_plugin',
+  'UICore': 'ui_core_plugin',
   'MediaControl': 'media_control'
 };
 
@@ -36,7 +38,7 @@ var ClapprPluginGenerator = yeoman.generators.Base.extend({
       type: 'list',
       name: 'type',
       message: 'Choose a plugin type:',
-      choices: ['Playback', 'Container', 'Core', 'MediaControl']
+      choices: ['Playback', 'Container', 'UIContainer', 'Core', 'UICore', 'MediaControl']
     }];
 
     this.prompt(prompts, function (props) {
@@ -58,7 +60,7 @@ var ClapprPluginGenerator = yeoman.generators.Base.extend({
       type: this.type.toLowerCase()
     });
 
-    this.template('_gulpfile.js', 'Gulpfile.js', {
+    this.template('_webpack.config.js', 'webpack.config.js', {
       pluginName: this._.classify(this.name),
       filename: this._.underscored(this.name),
     });
@@ -73,13 +75,6 @@ var ClapprPluginGenerator = yeoman.generators.Base.extend({
       filename: this._.underscored(this.name),
       pluginType: this.type.toLowerCase(),
     });
-
-    this.template('_hook.js', 'bin/hook.js', {
-      name: this._.underscored(this.name),
-    });
-
-    this.copy('gitkeep', 'public/.gitkeep');
-    this.copy('hook_template.js', 'bin/.hook_template');
   },
 
   projectfiles: function () {

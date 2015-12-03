@@ -1,31 +1,30 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <script type="text/javascript" charset="utf-8" src="/dist/clappr.min.js"></script>
-  <script type="text/javascript" charset="utf-8" src="/dist/<%= filename %>.js"></script>
-  <title><%= name %> Test Page</title>
-  <script type="text/javascript" charset="utf-8">
-window.onload = function() {
-  var player = new Clappr.Player({
-    sources: ['http://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4'],
-    parentId: '#player-wrapper',
-    <% if(pluginType === 'mediacontrol') { %>
-    mediacontrol: {
-      external: <%= classname %>
-    }
-    <% } else { %>
-    plugins: {
-      <%= pluginType %>: [<%= classname %>]
-    }
-    <% } %>
-  });
-}
-  </script>
-</head>
-<body>
-  <div id="player-wrapper">
-  </div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Clappr :: <%= name %> plugin</title>
+  </head>
+  <body>
+    <div id="player"></div>
+    <script type="text/javascript" charset="utf-8">
+      window.onload = function() {
+        player = new Clappr.Player({
+          source: 'http://techslides.com/demos/sample-videos/small.mp4',
+          parentId: '#player',
+          position: 'top-right',
+          <% if(pluginType === 'mediacontrol') { %>
+            mediacontrol: {
+              external: <%= classname %>
+            }
+          <% } else { %>
+            plugins: {
+              <%= pluginType %>: [<%= classname %>]
+            }
+          <% } %>
+        });
+      }
+    </script>
+    <script type="text/javascript" charset="utf-8" src="./node_modules/clappr/dist/clappr.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="./<%= name %>.js"> </script>
+  </body>
 </html>
-
