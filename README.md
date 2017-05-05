@@ -1,6 +1,8 @@
 
 # Clappr Player plugin generator [![Build Status](https://secure.travis-ci.org/clappr/generator-clappr-plugin.png?branch=master)](https://travis-ci.org/clappr/generator-clappr-plugin)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/clappr/generator-clappr-plugin.svg)](https://greenkeeper.io/)
+
 ## Getting Started
 
 Install yeoman and our generator from npm:
