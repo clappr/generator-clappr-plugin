@@ -1,3 +1,4 @@
+⚠️DEPRECATED and no longer compatible ⚠️
 
 # Clappr Player plugin generator [![Build Status](https://secure.travis-ci.org/clappr/generator-clappr-plugin.png?branch=master)](https://travis-ci.org/clappr/generator-clappr-plugin)
 
